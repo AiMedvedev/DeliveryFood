@@ -48,3 +48,4 @@ export const partners = () => {
         .then(data => renderItems(data))
         .catch(error => console.log(error))
 }
+

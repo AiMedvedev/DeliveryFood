@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/AiMedvedev/DeliveryFood/issues"
   },
-  "homepage": "https://github.com/AiMedvedev/DeliveryFood#readme"
+  "homepage": "https://github.com/AiMedvedev/DeliveryFood#readme",
+  "dependencies": {
+    "swiper": "^8.3.1"
+  }
 }
