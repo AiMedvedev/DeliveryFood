@@ -1,5 +1,5 @@
 import { auth } from './modules/auth';
-import { partners } from './modules/partners';
+import { menu } from './modules/menu';
 
 auth();
-partners();
+menu();
