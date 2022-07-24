@@ -1,13 +1,23 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
+    context: path.resolve(__dirname, 'src'),
     entry: {
-        main: './src/index.js',
-        menu: './src/menu.js'
+        common: './index.js',
+        second: './second.js'
     },
     output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        filename: 'js/[name].js',
+        path: path.resolve(__dirname, 'public')
+    },
+    devServer: {
+        hot: true,
+        compress: true,
+        port: 9000,
+        static: {
+            directory: path.resolve(__dirname, 'public'),
+            watch: true,
+        },
     },
     devtool: 'eval-source-map'
-}
+};
