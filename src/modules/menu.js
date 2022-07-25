@@ -1,5 +1,5 @@
 export const menu = () => {
-
+    const buttonCart = document.getElementById('cart-button');
     const cardsMenu = document.querySelector('.cards-menu');
 
     const changeTitle = (restaurant) => {
@@ -12,6 +12,26 @@ export const menu = () => {
         rating.textContent = restaurant.stars;
         price.textContent = `От ${restaurant.price} ₽`;
         product.textContent = restaurant.kitchen;
+    }
+
+    const addToCart = (cartItem) => {
+        const cartArray = localStorage.getItem('cart') ?
+                            JSON.parse(localStorage.getItem('cart')) : 
+                                [];
+
+        if (cartArray.some(item => item.id === cartItem.id)) {
+            cartArray.map((item => {
+                if (item.id === cartItem.id) {
+                    item.count++;
+                } 
+
+                return item;
+            }))
+        } else {
+            cartArray.push(cartItem);
+        }        
+
+        localStorage.setItem('cart', JSON.stringify(cartArray));
     }
 
     const renderItems = (data) => {
@@ -40,6 +60,11 @@ export const menu = () => {
             </div>
             `;
 
+            card.querySelector('.button-card-text').addEventListener('click', () => {
+                addToCart({name, price, id, count: 1});
+                buttonCart.style.display = 'flex';
+            });
+
             cardsMenu.append(card);
         });
     }
@@ -54,6 +79,6 @@ export const menu = () => {
         .then(data => renderItems(data))
         .catch(error => console.log(error))
     } else {
-        indow.location.href = '/';
+        window.location.href = '/';
     }
 }
