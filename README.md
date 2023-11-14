@@ -1,5 +1,19 @@
 # DeliveryFood
+Сайт доставки еды из ресторанов
 
-Intensive study JS project - food delivery site.
+## Запуск
+https://delivery-food-iota.vercel.app/
 
-Stack: HTML, CSS, JavaScript.
+## Стэк технологий
+- HTML
+- CSS
+- JavaScript
+- Webpack
+- LocalStorage
+- Swiper
+
+## Реализовано
+- Авторизация
+- Выбор ресторана
+- Добавление товара в корзину
+- Слайдер
